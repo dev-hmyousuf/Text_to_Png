@@ -13,7 +13,7 @@ body{
   justify-content: center;
   min-height: 100vh;
   padding: 10px;
-  background:#277dff;
+  background-color: #277dff;
   overflow: hidden;
 }
 .bg-video{

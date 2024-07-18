@@ -1,0 +1,230 @@
+/* Import Google font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 10px;
+  background: #17A2B8;
+  overflow: hidden;
+}
+.container {
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    align-items: start;
+    justify-content: center;
+}
+.wrapper{
+  width: 40%;
+  border-radius: 7px;
+  background: #fff;
+  padding: 30px 25px 40px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+
+}
+.wrapper :where(textarea, input, select, button){
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 17px;
+  border-radius: 5px;
+}
+.wrapper :where(textarea, input)::placeholder{
+  color: #aaa;
+}
+.wrapper :where(textarea, input):focus{
+  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+}
+.wrapper textarea{
+    text-wrap: wrap;
+    height: 270px;
+    resize: none;
+    padding: 8px 13px;
+    font-size: 17.6px;
+    border: 1px solid #ccc;
+}
+#title{
+    margin-bottom: 1rem;
+    text-wrap: wrap;
+    resize: none;
+    padding: 8px 13px;
+    font-size: 17.6px;
+    border: 1px solid #ccc;
+    display: block;
+    font-weight: bold;
+}
+#titleLabel {
+    display: block;
+    font-weight: bold;
+    font-size: 17.6px;
+}
+.wrapper .file-options{
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.file-options .option{
+  width: calc(100% / 2 - 8px);
+}
+.option label{
+  font-size: 17px;
+}
+.option :where(input , select){
+  height: 50px;
+  padding: 0 13px;
+  margin-top: 6px;
+  border-radius: 5px;
+  border: 1px solid #bfbfbf;
+}
+.option select{
+  height: 50px;
+  background: none;
+}
+.wrapper .save-btn{
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.6;
+  padding: 16px 0;
+  margin-top: 20px;
+  pointer-events: none;
+  background: #17A2B8;
+}
+.save-btn:hover{
+  background: #148c9f;
+}
+textarea:valid ~ .save-btn{
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 475px) {
+  .wrapper{
+    padding: 25px 18px 30px;
+  }
+  .wrapper :where(textarea, input, select, button, label){
+    font-size: 16px!important;
+  }
+  .file-options .option{
+    width: calc(100% / 2 - 5px);
+  }
+  .option :where(input, .select-menu){
+    padding: 0 10px;
+  }
+  .wrapper .save-btn{
+    padding: 15px 0;
+  }
+}
+
+
+
+.tool-options {
+    overflow-y: scroll;
+    width: 40%;
+    height: 100vh;
+    border-radius: 10px;
+    box-sizing: border-box;
+    border-radius: 7px;
+    background: #fff;
+    padding: 30px 25px 40px;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+.tool-options::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  .tool-options::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  .tool-options::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+  }
+  
+  .tool-options::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+  }
+
+
+  /* Main Scroller */
+
+::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #277dff;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background-color: #81a8e2;
+  }
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.option-group {
+    margin-bottom: 20px;
+}
+
+.option-group h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.tool-options label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.tool-options input[type="text"],
+.tool-options select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.tool-options input[type="text"]::placeholder {
+    color: #888;
+}
+
+@media screen and (max-width:676px) {
+    .container{
+        flex-direction: column;
+    }    
+    .wrapper{
+        width: 100%;
+    }
+    .tool-options{
+        width: 100%;
+    }
+    body{
+        overflow: scroll;
+    }
+}

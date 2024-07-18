@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>Save Text As File JavaScript | CodingNepal</title>
+  <link rel="stylesheet" href="./css/main.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;600&display=swap">
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <label id="titleLabel" for="title">Title</label>
+      <input type="text" name="" value="Your title here." id="title"></input>
+      <textarea spellcheck="false" placeholder="Enter something to save" required>Lorem Ipsum is simply dummy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type of specimen book. It has survived not only five centuries, but also the leap into electronic typesetting.</textarea>
+      <div class="file-options">
+        <div class="option file-name">
+          <label>File name</label>
+          <input type="text" spellcheck="false" placeholder="Enter file name">
+        </div>
+        <div class="option save-as">
+          <label>Save as</label>
+          <select>
+            <option selected value="image/png">PNG File (.png)</option>
+            <option value="text/plain">Text File (.txt)</option>
+            <option value="text/html">HTML File (.html)</option>
+            <option value="image/svg+xml">SVG File (.svg)</option>
+            <option value="application/msword">Doc File (.doc)</option>
+            <option value="application/vnd.ms-powerpoint">PPT File (.ppt)</option>
+          </select>
+        </div>
+      </div>
+      <button class="save-btn" type="button">Save As Picture File</button>
+    </div>
+    <div class="tool-options">
+      <h2>Tool Options</h2>
+      <div class="option-group">
+        <h3>Text Placement</h3>
+        <label for="pngWidth">PNG Width</label>
+        <input type="text" id="pngWidth" placeholder="PNG width.">
+        
+        <label for="padding">Padding</label>
+        <select id="padding">
+          <option value="5">5px</option>
+          <option value="10">10px</option>
+          <option value="15">15px</option>
+        </select>
+        
+        <label for="alignHorizontal">Align text horizontally.</label>
+        <select id="alignHorizontal">
+          <option value="left">Align to the Left</option>
+          <option value="center">Align to the Center</option>
+          <option value="right">Align to the Right</option>
+        </select>
+        
+        <label for="alignVertical">Align text vertically.</label>
+        <select id="alignVertical">
+          <option value="top">Align to the Top</option>
+          <option value="middle">Align to the Middle</option>
+          <option value="bottom">Align to the Bottom</option>
+        </select>
+        
+      </div>
+
+      <div class="option-group">
+        <h3>Text Colors</h3>
+        <label for="textColor">Color of the text characters.</label>
+        <select id="textColor">
+          <option selected value="#000">Black</option>
+          <option value="#fff">White</option>
+          <option value="#ddd">Gray</option>
+        </select>
+
+        <label for="backgroundColor">Color of the PNG background.</label>
+        <select id="backgroundColor">
+          <option selected value="#fff">White</option>
+          <option value="#000">Black</option>
+          <option value="#ddd">Gray</option>
+        </select>
+
+        <label for="textShadow">Text Shadow</label>
+        <select id="textShadow">
+          <option selected value="none">None</option>
+          <option value="5px 5px 7px #000">Black shadow</option>
+          <option value="5px 5px 7px #fff">White shadow</option>
+        </select>
+
+        
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/main.js"></script>
+</body>
+</html>

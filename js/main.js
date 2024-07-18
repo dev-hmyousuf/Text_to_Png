@@ -22,8 +22,13 @@ saveBtn.addEventListener("click", () => {
   }
 });
 
+const now = new Date();
+const timeString = now.toLocaleDateString() + ' ' + now.toLocaleTimeString();
+context.font = '16px monospace';
+context.fillText("Created on: " + timeString, 10, 150);
+
 function saveAsTextOrOther(fileName, format) {
-  const blob = new Blob([textarea.value], { type: format });
+  const blob = new Blob([textarea.value + '\n' + '\n' + now], { type: format });
   const fileUrl = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.download = fileName || "file";
@@ -84,29 +89,32 @@ function saveAsPNG(fileName) {
 
   // Function to wrap text and calculate height
   function wrapText(ctx, text, maxWidth, lineHeight) {
-    const words = text.split(" ");
-    let line = "";
-    let y = titleY + padding;
+    const paragraphs = text.split('\n'); // Split text into paragraphs based on line breaks
     const lines = [];
-    for (let n = 0; n < words.length; n++) {
-      let testLine = line + words[n] + " ";
-      let metrics = ctx.measureText(testLine);
-      let testWidth = metrics.width;
-      if (testWidth > maxWidth && n > 0) {
-        lines.push(line);
-        line = words[n] + " ";
-        y += lineHeight;
-      } else {
-        line = testLine;
+    let y = titleY + padding;
+    for (let p = 0; p < paragraphs.length; p++) {
+      const words = paragraphs[p].split(" ");
+      let line = "";
+      for (let n = 0; n < words.length; n++) {
+        let testLine = line + words[n] + " ";
+        let metrics = ctx.measureText(testLine);
+        let testWidth = metrics.width;
+        if (testWidth > maxWidth && n > 0) {
+          lines.push(line);
+          line = words[n] + " ";
+          y += lineHeight;
+        } else {
+          line = testLine;
+        }
       }
+      lines.push(line);
+      y += lineHeight;
     }
-    lines.push(line);
-    y += lineHeight;
     return { lines, height: y };
   }
 
   const lineHeight = 20;
-  const { lines, height } = wrapText(ctx, textarea.value, canvas.width - padding * 2, lineHeight);
+  const { lines, height } = wrapText(ctx, textarea.value + '\n' + '\n' + now, canvas.width - padding * 2, lineHeight);
 
   // Adjust canvas height based on text height
   canvas.height = height + padding * 2 + 24; // Added 24px for title height
@@ -163,10 +171,3 @@ function saveAsPNG(fileName) {
   link.href = canvas.toDataURL("image/png");
   link.click();
 }
-
-
-var myName = "Yousuf";
-function sayname(){
-  console.log(this.myName);
-}
-sayname()
